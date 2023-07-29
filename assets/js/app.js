@@ -87,8 +87,8 @@ let btnEdit = (editIcon) => {
 
 
 }
-
-if (JSON.parse(localStorage.getItem('stdInfoArray'))) {
+if (localStorage.getItem('stdInfoArray')) {
+// if (localStorage.getItem('stdInfoArray')) {
     stdInfoArray = JSON.parse(localStorage.getItem('stdInfoArray'));
     templating(stdInfoArray)
     stdTable.classList.remove('d-none')
@@ -112,9 +112,11 @@ const btnDelete = (std) => {
         document.getElementById(deleteId).remove()
         
         if (stdInfoArray.length) {
+            stdTable.classList.remove('d-none')
             stdCount.style.color = 'green'
             stdCount.innerHTML = `Number of Students are ${stdInfoArray.length}`
         } else {
+            localStorage.removeItem('stdInfoArray')
             stdCount.style.color = 'red'
             stdCount.innerHTML = 'No Student Record Found Yet !!!'
             stdTable.classList.add('d-none')
@@ -144,9 +146,10 @@ let onstdFormSubmit = (eve) => {
     cl(stdInfoObj)
     stdInfoArray.unshift(stdInfoObj);
     localStorage.setItem('stdInfoArray', JSON.stringify(stdInfoArray))
+    stdTable.classList.remove('d-none')
     stdCount.style.color = 'green'
     stdCount.innerHTML = `Number of students are : ${stdInfoArray.length}`;
-    cl(stdInfoArray)
+ 
     templating(stdInfoArray);
 
     Swal.fire({
