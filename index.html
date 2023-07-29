@@ -18,10 +18,12 @@
 
 <body>
 
-    <h3 class="text-capitalize text-center bg-warning p-4">student details</h3>
+    <header>
+        <h3 class="text-capitalize text-center bg-warning p-4">student Information</h3>
+    </header>
     <div class="container py-2">
         <div class="row p-3 border  border-danger rounded">
-            <div class="col-md-4 border border-primary  p-2 ">
+            <div class="col-md-4   p-2 ">
                 <form id="stdForm">
                     <div class="form-group">
                         <label for="fname">First Name <span class="text-danger">*</span></label>
@@ -50,7 +52,7 @@
                 <p class="alert alert-info text-center  my-2" id="stdCount">
 
                 </p>
-                <div class="table-responsive table-responsive-md">
+                <div class="table-responsive table-responsive-md table-hover stdTable">
 
                     <table class="table table-bordered">
 
@@ -75,10 +77,10 @@
                                 <td>9999999991</td>
                                 <td>9999999991</td>
                                 <td class="iconEdit">
-                                    <i class="fa-solid fa-pen-to-square text-success " onclick="btnEdit(this)"></i>
+                                    <i class="fa-solid fa-pen-to-square" onclick="btnEdit(this)"></i>
                                 </td>
                                 <td class="iconDelete">
-                                    <i class="fa-solid fa-trash-can text-danger " onclick="btnDelete(this)"></i>
+                                    <i class="fa-solid fa-trash-can" onclick="btnDelete(this)"></i>
                                 </td>
                             </tr> -->
                         </tbody>

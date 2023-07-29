@@ -6,20 +6,47 @@ body {
 }
 
 
+
+
 #trStdContainer .fa-solid {
-   /* text-align: center !important; */
    font-size: x-large;
 }
 
 
 #trStdContainer .iconEdit {
    text-align: center !important;
+   cursor: pointer;
+   color: rgb(26, 29, 26);
+   /* transition: all 0.3s ease-in-out; */
+
+}
+
+#trStdContainer .iconEdit:hover {
+   transform: scale(1.05);
+   /* color: rgb(19, 246, 61) !important; */
+color: greenyellow;
+   /* transform: translateY(-5px); */
+
 }
 
 #trStdContainer .iconDelete {
    text-align: center;
+   cursor: pointer;
+   color: black;
+}
+
+#trStdContainer .iconDelete:hover {
+   transform: scale(1.05);
+   color: red !important;
 }
 
 .trStdContainer {
    height: calc(100vh - 90px);
+}
+
+.table-hover tbody tr:hover {
+
+   color: #212529;
+   background-color: rgba(0, 0, 0, .075);
+   background-color: lightskyblue;
 }
