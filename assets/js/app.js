@@ -9,6 +9,7 @@ const emailControl = document.getElementById('email');
 const stdCount = document.getElementById('stdCount');
 const btnSubmit = document.getElementById('btnSubmit');
 const btnUpdate = document.getElementById('btnUpdate');
+const stdTable = document.getElementById('stdTable');
 
 let stdInfoArray = [];
 
@@ -90,12 +91,13 @@ let btnEdit = (editIcon) => {
 if (JSON.parse(localStorage.getItem('stdInfoArray'))) {
     stdInfoArray = JSON.parse(localStorage.getItem('stdInfoArray'));
     templating(stdInfoArray)
+    stdTable.classList.remove('d-none')
     stdCount.style.color = 'green'
     stdCount.innerHTML = `Number of students are : ${stdInfoArray.length}`;
 } else {
     stdCount.style.color = 'red'
     stdCount.innerHTML = `No students added yet!!!!!`;
-    // stdTable.classList.add('d-none')
+    stdTable.classList.add('d-none')
 }
 
 const btnDelete = (std) => {
@@ -106,6 +108,7 @@ const btnDelete = (std) => {
         let deleteId = std.closest('tr').id;
         stdInfoArray = stdInfoArray.filter(std => std.stdId != deleteId)
         localStorage.setItem('stdInfoArray', JSON.stringify(stdInfoArray))
+        stdTable.classList.remove('d-none')
         document.getElementById(deleteId).remove()
         
         if (stdInfoArray.length) {
@@ -114,7 +117,7 @@ const btnDelete = (std) => {
         } else {
             stdCount.style.color = 'red'
             stdCount.innerHTML = 'No Student Record Found Yet !!!'
-           
+            stdTable.classList.add('d-none')
         }      
 
     } else {
@@ -127,7 +130,6 @@ const btnDelete = (std) => {
         timer: 4000
     }) 
 }
-
 
 // ON FORM SUBMIT FUNCTIONALITY
 let onstdFormSubmit = (eve) => {
